@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Camera, CameraDirection, CameraResultType } from '@capacitor/camera';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,19 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
+  photo: any;
+
   constructor() {}
+
+  async takePicture() {
+    const image = await Camera.getPhoto({
+      quality: 100,
+      allowEditing: false,
+      resultType: CameraResultType.Base64,
+      direction: CameraDirection.Front
+    });
+  
+    this.photo = `data:image/${image.format};base64,${image.base64String}`;
+  };
 
 }
