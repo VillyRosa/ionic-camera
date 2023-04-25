@@ -1,0 +1,7 @@
+{
+  "name": "photo-base64",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
